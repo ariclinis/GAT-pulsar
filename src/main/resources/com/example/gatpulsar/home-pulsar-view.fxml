@@ -4,46 +4,49 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="403.0" prefWidth="429.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gatpulsar.HomePulsarController">
+<VBox alignment="CENTER" prefHeight="435.0" prefWidth="429.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gatpulsar.HomePulsarController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <HBox prefHeight="40.0" prefWidth="396.0">
-      <children>
          <Label alignment="CENTER" text="Escolha o ambiente  ">
             <opaqueInsets>
                <Insets top="10.0" />
             </opaqueInsets>
          </Label>
          <ComboBox fx:id="env" prefWidth="150.0" />
-      </children>
    </HBox>
    <HBox prefHeight="29.0" prefWidth="396.0">
-      <children>
          <TextField fx:id="certValue" prefHeight="26.0" prefWidth="213.0" />
-         <Button onAction="#selectCert" mnemonicParsing="false" text="Importar Certificado(.cert.pem)"  />
-      </children>
+         <Button mnemonicParsing="false" onAction="#selectCert" text="Importar Certificado(.cert.pem)" />
+
    </HBox>
    <HBox prefHeight="27.0" prefWidth="396.0">
       <children>
          <TextField fx:id="keyValue" prefHeight="26.0" prefWidth="214.0" />
-         <Button onAction="#selectKey" mnemonicParsing="false" text="Importar Key(.key.pem/.key.p8)" />
+         <Button mnemonicParsing="false" onAction="#selectKey" text="Importar Key(.key.pem/.key.p8)" />
       </children>
    </HBox>
    <HBox prefHeight="43.0" prefWidth="396.0">
       <children>
          <TextField fx:id="tlsTrustCertFileValue" prefHeight="26.0" prefWidth="215.0" />
-         <Button onAction="#selectTlsTrustCertFile" mnemonicParsing="false" prefHeight="26.0" prefWidth="184.0" text="Imoportar TlsTrustCerts File" />
+         <Button mnemonicParsing="false" onAction="#selectTlsTrustCertFile" prefHeight="26.0" prefWidth="184.0" text="Imoportar TlsTrustCerts File" />
+      </children>
+   </HBox>
+   <HBox prefHeight="43.0" prefWidth="390.0">
+      <children>
+         <Label text="Topico: " />
+         <TextField fx:id="topic" prefHeight="26.0" prefWidth="326.0" promptText="Persistent://....." />
       </children>
    </HBox>
    <HBox prefHeight="136.0" prefWidth="402.0">
       <children>
-         <TextArea prefHeight="208.0" prefWidth="402.0" promptText="Mensagem ..." />
+         <TextArea fx:id="message" prefHeight="208.0" prefWidth="402.0" promptText="Mensagem ..." />
       </children>
    </HBox>
    <HBox prefHeight="33.0" prefWidth="390.0">
       <children>
-         <Button mnemonicParsing="false" text="Enviar Mensagem" />
+         <Button onAction="#sendMessage" mnemonicParsing="false" text="Enviar Mensagem" />
       </children>
    </HBox>
 

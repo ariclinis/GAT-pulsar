@@ -16,6 +16,20 @@
 
     <dependencies>
         <dependency>
+            <artifactId>pulsar-jms-all</artifactId>
+            <groupId>com.datastax.oss</groupId>
+            <version>1.2.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/pulsar-jms-all-1.2.2.jar</systemPath>
+        </dependency>
+        <dependency>
+            <artifactId>javax.jms</artifactId>
+            <groupId>javax.jms</groupId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/javax.jms.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>17.0.6</version>

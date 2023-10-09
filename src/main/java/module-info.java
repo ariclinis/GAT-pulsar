@@ -10,6 +10,7 @@ module com.example.gatpulsar {
     requires org.kordamp.bootstrapfx.core;
     //requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires pulsar.jms.all;
 
     opens com.example.gatpulsar to javafx.fxml;
     exports com.example.gatpulsar;
