@@ -32,6 +32,7 @@ public class HomePulsarController implements Initializable {
         env.getItems().addAll(
                 "DEV",
                 "TST",
+                "TSI",
                 "CER",
                 "QLY",
                 "PRD"

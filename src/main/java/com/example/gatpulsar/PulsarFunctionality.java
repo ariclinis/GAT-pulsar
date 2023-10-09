@@ -15,7 +15,7 @@ public class PulsarFunctionality {
     private String broker;
     private  String authPlugin = "org.apache.client.impl.auth.Authentication";
 
-    private  JMSContext pulsarConnection;
+    private JMSContext pulsarConnection;
 
     public PulsarFunctionality(String cert, String key, String tlsCertsTrust, String env) throws JMSException {
         this.cert =cert;
@@ -61,6 +61,20 @@ public class PulsarFunctionality {
         But this method define de values for Broker and WebServiceUrl, depends of ev variable
      */
     private void setBrokerAndWebService() {
+        switch (this.env){
+            case "DEV":
+                break;
+            case "TST":
+                break;
+            case "TSI":
+                break;
+            case "CER":
+                break;
+            case "QLY":
+                break;
+            case "PRD":
+                break;
 
+        }
     }
 }
