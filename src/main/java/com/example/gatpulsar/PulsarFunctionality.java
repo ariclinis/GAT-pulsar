@@ -4,9 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import com.datastax.oss.pulsar.jms.PulsarConnectionFactory;
 
-import javax.jms.JMSContext;
-import javax.jms.JMSException;
-import javax.jms.Queue;
+import javax.jms.*;
 
 public class PulsarFunctionality {
     private String cert;
@@ -15,7 +13,7 @@ public class PulsarFunctionality {
     private String env;
     private String webServiceUrl;
     private String broker;
-    private  String authPlugin;
+    private  String authPlugin = "org.apache.client.impl.auth.Authentication";
 
     private  JMSContext pulsarConnection;
 
@@ -24,8 +22,9 @@ public class PulsarFunctionality {
         this.key = key;
         this.tlsCertsTrust = tlsCertsTrust;
         this.env = env;
-        pulsarConnection=connection(cert,key,tlsCertsTrust, env);
+        pulsarConnection=connection(this.cert,this.key,this.tlsCertsTrust, this.env);
     }
+
 
     private JMSContext connection(String cert, String key, String tlsCertsTrust, String env) throws JMSException {
         setBrokerAndWebService();
@@ -43,6 +42,19 @@ public class PulsarFunctionality {
             return null;
         }
 
+    }
+
+    public void sendMessage(String topic, String message){
+        Queue queue = this.pulsarConnection.createQueue(topic);
+        this.pulsarConnection.createConsumer(queue).setMessageListener(new MessageListener() {
+            @Override
+            public void onMessage(Message message) {
+                try {
+                    System.out.println("Mensagem recebida"+message);
+                }catch (Exception e){  System.out.println("Erro ao enviar receber a mensagem"+message);}
+            }
+        });
+        this.pulsarConnection.createProducer().send(queue,message);
     }
 
     /* Not implemented in gitHub
