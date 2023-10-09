@@ -63,18 +63,32 @@ public class PulsarFunctionality {
     private void setBrokerAndWebService() {
         switch (this.env){
             case "DEV":
+                    this.broker= "";
+                    this.webServiceUrl ="";
                 break;
             case "TST":
+                    this.broker= "";
+                    this.webServiceUrl ="";
                 break;
             case "TSI":
+                    this.broker= "";
+                    this.webServiceUrl ="";
                 break;
             case "CER":
+                    this.broker= "";
+                    this.webServiceUrl ="";
                 break;
             case "QLY":
+                    this.broker= "";
+                    this.webServiceUrl ="";
                 break;
             case "PRD":
+                    this.broker= "";
+                    this.webServiceUrl ="";
                 break;
-
+                default:
+                    this.broker= "";
+                    this.webServiceUrl ="";
         }
     }
 }
